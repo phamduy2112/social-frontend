@@ -1,0 +1,56 @@
+/* reset.css */
+
+/* Reset tất cả các phần tử */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Thiết lập font-size cho html */
+
+  /* Thiết lập kiểu cho body */
+  body {
+    font-family: Arial, sans-serif; /* Hoặc font bạn muốn sử dụng */
+    line-height: 1.5;
+    background-color: #f3f4f6; /* Màu nền nhẹ */
+    color: #333; /* Màu chữ tối */
+  }
+  
+  /* Reset cho các phần tử tiêu đề */
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: normal; /* Đặt lại trọng số font */
+  }
+  
+  /* Reset cho danh sách */
+  ul, ol {
+    list-style: none; /* Bỏ dấu đầu dòng */
+  }
+  
+  /* Reset cho hình ảnh */
+  img {
+    max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng của phần tử chứa */
+    height: auto; /* Giữ tỷ lệ khung hình */
+  }
+  
+  /* Reset cho liên kết */
+  a {
+    text-decoration: none; /* Bỏ gạch chân */
+    color: inherit; /* Kế thừa màu sắc từ phần tử cha */
+  }
+  
+  /* Reset cho bảng */
+  table {
+    border-collapse: collapse; /* Gộp các đường viền */
+    width: 100%; /* Đặt chiều rộng bảng 100% */
+  }
+  
+  /* Reset cho các phần tử form */
+  input, button, textarea, select {
+    font-family: inherit; /* Kế thừa font từ body */
+    font-size: inherit; /* Kế thừa kích thước font từ body */
+    line-height: inherit; /* Kế thừa chiều cao dòng từ body */
+  }
+  
+  /* Thêm các kiểu khác nếu cần */
