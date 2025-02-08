@@ -2,65 +2,123 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import React, { useState } from 'react';
 import { AiOutlineFacebook, AiOutlineGoogle } from 'react-icons/ai';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+
+import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
+import { registerApi } from '@/service/auth/auth.service';
+import { Toast } from '@/components/ui/toast';
+import { toast } from '@/hooks/use-toast';
 
 const SignupForm = () => {
+  const initialValues = {
+    fullname:'',
+    email: '',
+    password:'',
+    confirmPassword:'',
 
+  };
+  const navigate = useNavigate();
+
+  const validationSchema = Yup.object({
+    fullname: Yup.string().required('Họ tên là bắt buộc'),
+    email: Yup.string()
+      .email('Địa chỉ email không hợp lệ')
+      .required('Email là bắt buộc'),
+    password: Yup.string()
+      .required('Nhập mật khẩu là bắt buộc')
+      .min(6, 'Mật khẩu phải có ít nhất 6 ký tự'),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password')], 'Mật khẩu không khớp')
+      .required('Xác nhận mật khẩu là bắt buộc'),
+  });
+
+  const handleSubmit = async (values:any) => {
+      const payload={
+        full_name:values.fullname,
+        email:values.email,
+        password:values.password
+      }
+      console.log(payload);
+      
+      // // registerApi
+      const res=await registerApi(payload)
+      if(res){
+        toast({
+          title: "Scheduled: Catch up",
+          description: "Friday, February 10, 2023 at 5:57 PM",
+        })
+
+        
+      }
+  };
   return (
     <div className="flex items-center justify-center min-h-screen bg-zinc-900">
     <div className="bg-zinc-800 p-10 rounded-lg shadow-lg w-[30rem]">
       <h2 className="text-3xl font-bold text-center mb-6 text-white">Đăng Kí</h2>
       
-      <form>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-300 mb-1" htmlFor="email">Email</label>
-          <Input
-            type="email"
-            id="email"
-            className='text-white '
-
-            placeholder="Nhập email của bạn"
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-300 mb-1" htmlFor="email">Họ tên</label>
-          <Input
-            type="name"
-            id="name"
-            className='text-white '
-
-            placeholder="Nhập họ tên của bạn"
-            required
-          />
-        </div>
-        <div className="mb-6"> 
-          <label className="block  text-sm  font-medium text-gray-300 mb-1" htmlFor="password">Mật Khẩu</label>
-          <Input
-            type="password"
-            id="password"
-      className='text-white '
-            placeholder="Nhập mật khẩu của bạn"
-            required
-          />
-        </div>
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-300 mb-1" htmlFor="password">Nhập lại mật Khẩu</label>
-          <Input
-            type="password"
-            id="password"
-            className='text-white '
-
-            placeholder="Nhập mật khẩu của bạn"
-            required
-          />
-        </div>
-        <Button
-          type="submit"
-          className="w-full bg-blue-600 text-white px-3 py-[1rem] rounded-md hover:bg-blue-700 transition duration-200"
-        >
-          Đăng kí
-        </Button>
-      </form>
+      <Formik
+         initialValues={initialValues}
+         validationSchema={validationSchema}
+         onSubmit={handleSubmit}
+       >
+         {({ isSubmitting }) => (
+           <Form>
+             <div className="mb-4">
+               <label className="block text-[.95rem] font-medium text-gray-300 mb-2" htmlFor="fullname">Họ tên</label>
+               <Field
+                 type="text"
+                 id="fullname"
+                 name="fullname"
+                 className='text-white w-[100%] px-4 py-[.3rem] rounded-sm mb-2 bg-zinc-700 border border-zinc-600 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50'
+                 placeholder="Nhập họ tên của bạn"
+               />
+               <ErrorMessage name="fullname" component="div" className="text-red-500  text-sm" />
+             </div>
+             <div className="mb-4">
+               <label className="block text-[.95rem] font-medium text-gray-300 mb-2" htmlFor="email">Email</label>
+               <Field
+                 type="email"
+                 id="email"
+                 name="email"
+                 className='text-white w-[100%] px-4 py-[.3rem] rounded-sm mb-2 bg-zinc-700 border border-zinc-600 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50'
+                 placeholder="Nhập email của bạn"
+               />
+               <ErrorMessage name="email" component="div" className="text-red-500  text-sm" />
+             </div>
+             
+             <div className="mb-4">
+               <label className="block text-[.95rem] font-medium text-gray-300 mb-2" htmlFor="email">Mật khẩu</label>
+               <Field
+                 type="password"
+                 id="password"
+                 name="password"
+                 className='text-white w-[100%] px-4 py-[.3rem] rounded-sm mb-2 bg-zinc-700 border border-zinc-600 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50'
+                 placeholder="Nhập mật khẩu của bạn"
+               />
+               <ErrorMessage name="password" component="div" className="text-red-500  text-sm" />
+             </div>
+             <div className="mb-4">
+               <label className="block text-[.95rem] font-medium text-gray-300 mb-2" htmlFor="email">Xác nhận mất khẩu</label>
+               <Field
+                 type="password"
+                 id="confirmPassword"
+                 name="confirmPassword"
+                 className='text-white w-[100%] px-4 py-[.3rem] rounded-sm mb-2 bg-zinc-700 border border-zinc-600 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50'
+                 placeholder="Nhập mật khẩu của bạn"
+               />
+               <ErrorMessage name="confirmPassword" component="div" className="text-red-500  text-sm" />
+             </div>
+             <Button
+               type="submit"
+               className="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-200"
+               disabled={isSubmitting}
+             >
+               Đăng kí
+             </Button>
+           </Form>
+         )}
+       </Formik>
 
       <div className="flex items-center justify-between mt-4">
         <hr className="w-full border-gray-600" />

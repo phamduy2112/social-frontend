@@ -14,7 +14,8 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import { Bookmarks } from '@/pages/bookmarks';
-import Register from '@/pages/auth/register';
+import { persistStore } from 'redux-persist';
+
 import { Following } from '@/pages/following';
 import { ExploreDetail } from '@/pages/explore-detail';
 import { Explore } from '@/pages/explore';
@@ -58,6 +59,7 @@ const router = createBrowserRouter(
     </Route>,
   ),
 );
+
 
 const AppRouter: React.FC = () => {
   return <RouterProvider router={router} />;
