@@ -62,7 +62,7 @@ const Notifications: React.FC<NotificationsProps> = ({}) => {
 
   return (
     <section
-      className={`relative min-w-full flex-1 h-screen flex flex-col gap-3 p-3 text-white ${isSmallScreen ? 'after:h-[112px] before:mb-[80px]' : ''}  before:absolute before:z-1 before:bottom-0 before:left-0 before:right-0  before:pointer-events-none before: before:h-[100px] before:bg-gradient-to-b before:from-[rgba(40,40,40,0)] before:to-[#313131]`}
+      className={`relative min-w-full  flex-1 h-[100vh] flex flex-col gap-3 p-3 text-white ${isSmallScreen ? 'after:h-[112px] before:mb-[80px]' : ''}  before:absolute before:z-1 before:bottom-0 before:left-0 before:right-0  before:pointer-events-none before: before:h-[100px] before:bg-gradient-to-b before:from-[rgba(40,40,40,0)] before:to-[#313131]`}
     >
       <AppBar
         leading={

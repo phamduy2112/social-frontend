@@ -2,13 +2,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import React from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { BsThreeDots } from "react-icons/bs";
-import { AiOutlineLike } from "react-icons/ai";
-import { FaLocationArrow, FaRegCommentDots } from "react-icons/fa";
+import { AiFillLike, AiOutlineLike } from "react-icons/ai";
+import { FaLocationArrow, FaRegCommentDots, FaRegHeart, FaRegSmile } from "react-icons/fa";
 import { IoMdShare } from "react-icons/io";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Button } from "@/components/ui/button";
 import ModalBlog from "./ModalBlog";
 import { Input } from "@/components/ui/input";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { CiFaceSmile } from "react-icons/ci";
+import { PiSmileySadBold } from "react-icons/pi";
 
 function Blog() {
   return (
@@ -54,7 +57,7 @@ function Blog() {
           10
         </div>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent className="bg-zinc-800 border border-zinc-700 text-white">
           <DialogHeader>
             <DialogTitle>Tất cả</DialogTitle>
 
@@ -77,7 +80,7 @@ function Blog() {
       <p>Phạm Duy</p>
          </div>
 
-<Button>Thêm bạn bè</Button>
+<Button className="text-white">Thêm bạn bè</Button>
           
           </div>
 
@@ -97,8 +100,29 @@ function Blog() {
       </div>
       <div className="flex items-center py-[.5rem] justify-center  border border-b-zinc-600 border-transparent">
       <div className="flex gap-[.5rem] items-center justify-center w-[30%] text-[1.1rem] text-zinc-400 cursor-pointer" >
-          <AiOutlineLike />
-          Thích
+      <TooltipProvider>
+  <Tooltip >
+    <TooltipTrigger className="flex gap-[.5rem] items-center justify-center w-[30%] text-[1.1rem] text-zinc-400 cursor-pointer ">
+    <AiOutlineLike />
+    Thích
+    </TooltipTrigger>
+    <TooltipContent className="bg-zinc-800 border border-zinc-700 rounded-[3rem] flex gap-[.5rem]">
+    <Button className="bg-blue-600 w-[2.5rem] h-[2.5rem] text-white rounded-full">
+      
+       
+        <AiFillLike />
+     </Button>
+    <Button className="bg-red-600 w-[2.5rem] h-[2.5rem] text-white rounded-full"><FaRegHeart  /></Button>
+    <Button className="bg-orange-600 w-[2.5rem] h-[2.5rem] text-white rounded-full
+    text-[1.5rem]
+    "><FaRegSmile    /></Button>
+    <Button className="bg-orange-600 w-[2.5rem] h-[2.5rem] text-white rounded-full
+    text-[1.5rem]
+    "><PiSmileySadBold     /></Button>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+          
         </div>
         <ModalBlog/>
         <div className="flex gap-[.5rem] items-center justify-center w-[30%] text-[1.1rem] text-zinc-400 cursor-pointer" >

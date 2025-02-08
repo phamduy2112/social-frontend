@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { InputOTP, InputOTPGroup, InputOTPSlot, REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
 import { Button } from '@/components/ui/button';
+import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
 
 const OtpInput = () => {
   const [otp, setOtp] = useState(['', '', '', '', '', '']); // Mảng để lưu trữ giá trị OTP
@@ -40,31 +41,37 @@ const OtpInput = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-zinc-900">
-      <div className="bg-zinc-800 p-10 rounded-lg shadow-lg w-96">
-        <h2 className="text-3xl font-bold text-center mb-6 text-white">Nhập Mã OTP</h2>
+      <div className="bg-zinc-800 p-10 rounded-lg shadow-lg w-[30rem]">
+        <h2 className="text-2xl font-bold text-center mb-6 text-white">Nhập Mã OTP</h2>
         
-        <form onSubmit={handleSubmit}>
-          <InputOTP
-            maxLength={6}
-            pattern={REGEXP_ONLY_DIGITS_AND_CHARS}
-            onChange={handleChange}
-          >
-            <InputOTPGroup>
-              {otp.map((value, index) => (
-                <InputOTPSlot
-                  key={index}
-                  index={index}
-                  value={value}
-                  onChange={(value) => handleChange(value, index)}
-                />
-              ))}
-            </InputOTPGroup>
-          </InputOTP>
-          
+        <form onSubmit={handleSubmit} className='w-[100%]'>
+        <InputOTP
+  maxLength={6}
+  pattern={REGEXP_ONLY_DIGITS_AND_CHARS}
+  onChange={handleChange}
+  className="w-full" // Thêm class này để full width
+>
+  <InputOTPGroup className="w-full flex justify-between"> 
+    {otp.map((value, index) => (
+      <InputOTPSlot
+        key={index}
+        index={index}
+        value={value}
+        onChange={(value) => handleChange(value, index)}
+        className="w-full text-center text-white h-[3rem]" // Đảm bảo mỗi ô full width
+      />
+    ))}
+  </InputOTPGroup>
+</InputOTP>
+          <div className='flex justify-between mt-[.5rem] text-[.9rem]'>
+          <p className='text-white'>Gửi lại</p>
+          <p className='text-white'>Thời gian: <span>180s</span></p>
+         
+
+          </div>
           <Button
             type="submit"
-            className="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-200 mt-4"
+            className="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-200 mt-3"
           >
             Gửi Mã OTP
           </Button>
@@ -72,7 +79,6 @@ const OtpInput = () => {
 
         {message && <p className="mt-4 text-center text-sm text-gray-400">{message}</p>}
       </div>
-    </div>
   );
 };
 

@@ -1,4 +1,5 @@
 import useBreakPoint from '@/hooks/use-breakpoint';
+import Header from '@/layout/component/header/Header';
 import BottomNavigationBar from '@/layouts/components/bottom-navigation-bar';
 import Sidebar from '@/layouts/components/sidebar';
 import eventBus from '@/utils/event-emitter';
@@ -27,6 +28,7 @@ const MainLayout = ({}: Props) => {
 
   return (
     <>
+    <Header/>
       <div id="" className="h-fit block md:flex">
         {breakpoint !== 'sm' && <Sidebar />}
         <main className="flex-1 flex-grow w-full min-h-fit overflow-hidden">

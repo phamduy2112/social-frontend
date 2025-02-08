@@ -16,21 +16,31 @@ import SearchWithInput from './component/SearchInput';
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isFixed,setIsFixed] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
   console.log(isMobile);
   
 	useEffect(() => {
 		const checkMobile = () => {
 			setIsMobile(window.innerWidth < 768);
 		};
-
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      setIsFixed(window.scrollY > 50);
+    }
 		checkMobile();
 		window.addEventListener("resize", checkMobile);
-		return () => window.removeEventListener("resize", checkMobile);
+		window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("scroll", handleScroll);
+    }
 	}, []);
 
 
   return (
-    <div className=' z-30 text-white h-[3.3rem] w-[100%] bg-zinc-800/90'>
+    <div className={`w-full h-[3.6rem] bg-zinc-800 border-b border-zinc-500 transition-all duration-300 ${isFixed ? 'fixed top-0 left-0 z-30 shadow-lg' : ''}`} style={{ top: isFixed ? '0' : `${Math.max(0, 50 - scrollY)}px`, transition: 'top 0.3s ease' }}>
 
       <div className='flex justify-between items-center h-full w-[95%] m-auto'>
 

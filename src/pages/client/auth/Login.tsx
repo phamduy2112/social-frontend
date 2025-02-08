@@ -2,16 +2,17 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import React from 'react';
 import { AiOutlineFacebook, AiOutlineGoogle } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
       <div className="flex items-center justify-center min-h-screen bg-zinc-900">
-        <div className="bg-zinc-800 p-10 rounded-lg shadow-lg w-96">
+        <div className="bg-zinc-800 p-10 rounded-lg shadow-lg w-[30rem]">
           <h2 className="text-3xl font-bold text-center mb-6 text-white">Đăng Nhập</h2>
           
           <form>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-300" htmlFor="email">Email</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="email">Email</label>
               <Input
                 type="email"
                 id="email"
@@ -21,8 +22,8 @@ const Login = () => {
                 required
               />
             </div>
-            <div className="mb-6">
-              <label className="block text-sm font-medium text-gray-300" htmlFor="password">Mật Khẩu</label>
+            <div className="mb-3">
+              <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="password">Mật Khẩu</label>
               <Input
                 type="password"
                 id="password"
@@ -32,9 +33,12 @@ const Login = () => {
                 required
               />
             </div>
+            <div className='mb-2'>
+              <Link to="/" className="text-zinc-400 hover:underline text-[.9rem] flex justify-end">Quên mật khẩu?</Link>
+            </div>
             <Button
               type="submit"
-              className="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-200"
+              className="w-full h-[2.5rem] bg-zinc-900 text-white p-3 rounded-md hover:bg-zinc-700 transition duration-200"
             >
               Đăng Nhập
             </Button>

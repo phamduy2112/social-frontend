@@ -80,7 +80,7 @@ const Sidebar: React.FC = () => {
       />
       {/* Sidebar */}
       <aside
-        className={`hidden md:flex md:flex-col min-h-full fixed z-1 top-0 left-0  bg-surface-3 text-white transition-all duration-300 ${
+        className={`hidden md:flex md:flex-col min-h-full fixed z-1 top-[3rem] left-0  bg-surface-3 text-white transition-all duration-300 ${
           isExpanded ? 'w-70 2xl:w-80 ' : 'w-18'
         }`}
       >

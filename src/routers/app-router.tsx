@@ -3,7 +3,6 @@ import MainLayout from '@/layouts/main-layout';
 import SidebySideLayout from '@/layouts/sbs-layout';
 import ErrorPage from '@/pages/error/error-page';
 import { Message } from '@/pages/message';
-import Login from '@/pages/auth/login';
 import Notifications from '@/pages/notifications/notifications';
 import { PostDetail } from '@/pages/post-detail';
 import Settings from '@/pages/settings/settings';
@@ -23,14 +22,17 @@ import { EditProfile } from '@/pages/edit-profile';
 import Home from '@/pages/client/home/Home';
 import MyProfile from '@/pages/client/profile/component/MyProfile';
 import Profile from '@/pages/client/profile/Profile';
+import Login from '@/pages/client/auth/Login';
+import SignupForm from '@/pages/client/auth/Sign';
+import ForgotPassword from '@/pages/client/auth/forgotPassword/ForgotPassword';
 
 // ----------------------------------------------------------------------
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route errorElement={<ErrorPage />}>
       <Route path={paths.login} element={<Login />} />
-      <Route path={paths.register} element={<Register />} />
-
+      <Route path={paths.register} element={<SignupForm />} />
+      <Route path={paths.forgotPassword} element={<ForgotPassword/>} />
       <Route path={paths.home} element={<MainLayout />}>
         {/*Pages with right sidebar  */}
         <Route element={<SidebySideLayout sideComponent={<SidebarRight />} />}>

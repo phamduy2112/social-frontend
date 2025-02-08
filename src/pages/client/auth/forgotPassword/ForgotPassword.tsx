@@ -1,47 +1,68 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import React, { useState } from 'react';
+import OtpInput from './OtpFormPass';
+import ChangePassword from './ChanggPassword';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
+import * as Yup from 'yup';
 const ForgotPassword = () => {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [number,setNumber] = useState(1);
+
+  const initialValues = {
+    email: '',
+  };
+
+  const validationSchema = Yup.object({
+    email: Yup.string()
+      .email('Địa chỉ email không hợp lệ')
+      .required('Email là bắt buộc'),
+  });
+
+  const handleSubmit = (values:any) => {
+    console.log('Gửi mã OTP đến:', values.email);
     // Gửi mã OTP đến email
-    // Bạn có thể gọi API ở đây để gửi mã OTP
-    console.log('Gửi mã OTP đến:', email);
-    setMessage('Mã OTP đã được gửi đến email của bạn.');
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-zinc-900">
-      <div className="bg-zinc-800 p-10 rounded-lg shadow-lg w-96">
-        <h2 className="text-3xl font-bold text-center mb-6 text-white">Quên Mật Khẩu</h2>
-        
-        <form onSubmit={handleSubmit}>
+     {
+      number === 0 ? (
+        <div className="bg-zinc-800 p-10 rounded-lg shadow-lg w-[30rem]">
+        <h2 className="text-2xl font-bold text-center mb-6 text-white">Quên Mật Khẩu</h2>
+        <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+      {({ isSubmitting }) => (
+        <Form>
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-300" htmlFor="email">Email</label>
-            <Input
+            <label className="block text-[.95rem] font-medium text-gray-300 mb-2" htmlFor="email">Email</label>
+            <Field
               type="email"
               id="email"
-              className='text-white'
+              name="email"
+              className='text-white w-[100%] px-4 py-[.5rem] rounded-sm mb-2 bg-zinc-700 border border-zinc-600 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50'
               placeholder="Nhập email của bạn"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
             />
+            <ErrorMessage name="email" component="div" className="text-red-500  text-sm" />
           </div>
           <Button
             type="submit"
             className="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-200"
+            disabled={isSubmitting}
           >
             Gửi Mã OTP
           </Button>
-        </form>
+        </Form>
+      )}
+    </Formik>
 
-        {message && <p className="mt-4 text-center text-sm text-gray-400">{message}</p>}
       </div>
+      ): <OtpInput/>
+     }
     </div>
   );
 };

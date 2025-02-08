@@ -9,9 +9,9 @@ export const paths = {
   home: ROOTS.HOME,
 
   login: `${ROOTS.HOME}login`,
-  register: `${ROOTS.HOME}/register`,
-
-  postDetail: `${ROOTS.HOME}/posts/:id`,
+  register: `${ROOTS.HOME}register`,
+  forgotPassword: `${ROOTS.HOME}forgot-password`,
+  postDetail: `${ROOTS.HOME}posts/:id`,
 
   notifications: `${ROOTS.HOME}notifications`,
 
@@ -29,4 +29,5 @@ export const paths = {
   following: `${ROOTS.HOME}/following`,
 
   exploreDetail: `${ROOTS.HOME}/explore/:id`,
+
 };

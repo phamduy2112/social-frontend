@@ -15,7 +15,7 @@ function Profile() {
   return (
     <div>
       <div className="h-screeno bg-black text-white flex flex-col  ">
-        <div className="sm:w-[100%] 2xl:w-[70rem] mx-auto mt">
+        <div className="sm:w-[100%] 2xl:w-[95%] mx-auto mt">
           <div className=" bg-zinc-500 h-[30rem] relative">
             <div className="w-[30px] h-[30px] cursor-pointer bg-black flex justify-center rounded-full items-center absolute top-2 left-3">
                <GrPrevious />

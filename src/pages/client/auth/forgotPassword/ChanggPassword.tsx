@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
+import * as Yup from "yup";
 const ChangePassword = () => {
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [message, setMessage] = useState('');
 
+
+  const initialValues = {
+    password: "",
+    confirmPassword: "",
+  };
+  const validationSchema = Yup.object({
+    password: Yup.string()
+    .required("Mật khẩu là bắt buộc"),
+    confirmPassword: Yup.string()
+    .required("Xác nhận mật khẩu là bắt buộc"),
+  });
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Kiểm tra xem mật khẩu và xác nhận mật khẩu có khớp không
-    if (password !== confirmPassword) {
-      setMessage('Mật khẩu và xác nhận mật khẩu không khớp.');
-      return;
-    }
+ 
 
     // Gọi API để thay đổi mật khẩu
     // Ví dụ:
@@ -40,43 +47,51 @@ const ChangePassword = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-zinc-900">
-      <div className="bg-zinc-800 p-10 rounded-lg shadow-lg w-96">
-        <h2 className="text-3xl font-bold text-center mb-6 text-white">Đổi Mật Khẩu</h2>
-        
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-300" htmlFor="password">Mật Khẩu Mới</label>
-            <Input
-              type="password"
-              id="password"
-              className='text-white'
-              placeholder="Nhập mật khẩu mới"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-300" htmlFor="confirmPassword">Xác Nhận Mật Khẩu</label>
-            <Input
-              type="password"
-              id="confirmPassword"
-              className='text-white'
-              placeholder="Nhập lại mật khẩu mới"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </div>
-          <Button
-            type="submit"
-            className="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-200"
-          >
-            Đổi Mật Khẩu
-          </Button>
-        </form>
+      <div className="bg-zinc-800 p-10 rounded-lg shadow-lg w-[30rem]">
+        <h2 className="text-2xl font-bold text-center mb-6 text-white">
+          Đổi Mật Khẩu
+        </h2>
 
-        {message && <p className="mt-4 text-center text-sm text-gray-400">{message}</p>}
+           <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              <div className="mb-4">
+                <label className="block text-[.95rem] font-medium text-gray-300 mb-2" htmlFor="email">Mật khẩu</label>
+                <Field
+                  type="password"
+                  id="password"
+                  name="password"
+                  className='text-white w-[100%] px-4 py-[.5rem] rounded-sm mb-2 bg-zinc-700 border border-zinc-600 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50'
+                  placeholder="Nhập email của bạn"
+                />
+                <ErrorMessage name="password" component="div" className="text-red-500  text-sm" />
+              </div>
+              <div className="mb-4">
+                <label className="block text-[.95rem] font-medium text-gray-300 mb-2" htmlFor="email">Xác nhận mật khẩu</label>
+                <Field
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  className='text-white w-[100%] px-4 py-[.5rem] rounded-sm mb-2 bg-zinc-700 border border-zinc-600 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50'
+                  placeholder="Nhập email của bạn"
+                />
+                <ErrorMessage name="confirmPassword" component="div" className="text-red-500  text-sm" />
+              </div>
+              <Button
+                type="submit"
+                className="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition duration-200"
+                disabled={isSubmitting}
+              >Xác Nhận
+              </Button>
+            </Form>
+          )}
+        </Formik>
+
+      
       </div>
     </div>
   );

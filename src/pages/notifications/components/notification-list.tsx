@@ -10,7 +10,8 @@ export const NotificationList: React.FC<NotificationListProps> = ({
   notifications,
 }) => {
   return (
-    <ul className="no-scrollbar overflow-scroll flex-grow gap-2 flex flex-col relative">
+    // no-scrollbar overflow-scroll
+    <ul className=" flex-grow gap-2 flex flex-col relative">
       {notifications.map((noti, i) => (
         <NotificationItem key={i} notification={noti} />
       ))}
