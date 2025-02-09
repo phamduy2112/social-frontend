@@ -7,7 +7,7 @@ export enum getApiActionType {
 
 export const getApiAction = (action: getApiActionType): string => {
   switch (action) {
-    case getApiAction.auth:
+    case getApiActionType.auth:
       return 'auth';
     
     default:
