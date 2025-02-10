@@ -146,13 +146,17 @@ function Blog() {
     </Avatar>
   </div>
 
-  <div className="w-[80%]">
+  <div className="w-[90%]">
     <h5 className="text-[.9rem]">Phạm Duy</h5>
-    <p>
+    <div className="flex justify-between gap-[2rem]">
+      <p>
       Lorem ipsum dolor sit amet consectetur adipisicing esadasdasdasdasdasdasdasdasdasdlit. Id harum, eiusasdasd
  
 
     </p>
+    <BsThreeDots  className="cursor-pointer"/>
+    </div>
+    
     <div className="flex gap-[.8rem] mt-1">
         <p className="text-[.9rem] text-zinc-400">4 giờ</p>
         <p className="text-[.9rem] text-zinc-300">Thích</p>
