@@ -26,6 +26,7 @@ import Profile from '@/pages/client/profile/Profile';
 import Login from '@/pages/client/auth/Login';
 import SignupForm from '@/pages/client/auth/Sign';
 import ForgotPassword from '@/pages/client/auth/forgotPassword/ForgotPassword';
+import Dashboard from '@/layouts/Admin/Dashboard';
 
 // ----------------------------------------------------------------------
 const router = createBrowserRouter(
@@ -56,6 +57,8 @@ const router = createBrowserRouter(
       {/* <Route   element={<Profile />} >
             <Route path={paths.profile} element={<MyProfile />} />
           </Route> */}
+
+          <Route path={paths.dashboard} element={<Dashboard />} />
     </Route>,
   ),
 );
