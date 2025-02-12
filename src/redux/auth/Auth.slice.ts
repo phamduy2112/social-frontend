@@ -1,6 +1,8 @@
 // import { registerApi } from "@/service/auth/auth.service";
 // import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+import { createSlice } from "@reduxjs/toolkit";
+
 // export const getSearchProductThunk = createAsyncThunk(
 //     "getSearchProductThunk",
 //     async (data:any) => {      
@@ -13,30 +15,31 @@
 //     },
 //   );
   
-//   const initialState = {
-//     login:false,
-// };
+  const initialState = {
+
+    email:''
+};
   
-//   const searchSlice = createSlice({
-//     name: "searchSlice",
-//     initialState,
-//     reducers: {
-//     //   setSearch: (state, { payload }) => {
-//     //     state.listSearch = payload;
-//     //   },
-//     },
-//     extraReducers: (builder) => {
-//       builder
-//         .addCase(getSearchProductThunk.fulfilled, (state, { payload }) => {
-//           state.listSearch = payload;
-//         });
-//     },
+  const authSlice = createSlice({
+    name: "authSlice",
+    initialState,
+    reducers: {
+      setEmail: (state, { payload }) => {
+        state.email = payload.email;
+      },
+    },
+    // extraReducers: (builder) => {
+    //   builder
+    //     .addCase(getSearchProductThunk.fulfilled, (state, { payload }) => {
+    //       state.listSearch = payload;
+    //     });
+    // },
   
   
   
   
-//   });
+  });
   
-//   export const { setSearch } = searchSlice.actions;
+  export const { setEmail } = authSlice.actions;
   
-//   export const searchReducer = searchSlice.reducer;
+  export const authReducer = authSlice.reducer;

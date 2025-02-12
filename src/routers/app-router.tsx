@@ -26,6 +26,8 @@ import Profile from '@/pages/client/profile/Profile';
 import Login from '@/pages/client/auth/Login';
 import SignupForm from '@/pages/client/auth/Sign';
 import ForgotPassword from '@/pages/client/auth/forgotPassword/ForgotPassword';
+import MyInfor from '@/pages/client/profile/component/MyInfor';
+import MyFriends from '@/pages/client/profile/component/MyFriends';
 
 // ----------------------------------------------------------------------
 const router = createBrowserRouter(
@@ -44,6 +46,7 @@ const router = createBrowserRouter(
             <Route path={paths.profile} element={<MyProfile />} />
           </Route>
           <Route path={paths.profileDetail} element={<EditProfile />} />
+          <Route path={paths.myFriend} element={<MyFriends />} />
           <Route path={paths.following} element={<Following />} />
           <Route path={paths.exploreDetail} element={<ExploreDetail />}></Route>
           <Route path={paths.explore} element={<Explore />} />

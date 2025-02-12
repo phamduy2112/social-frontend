@@ -39,18 +39,23 @@ const SignupForm = () => {
         email:values.email,
         password:values.password
       }
-      console.log(payload);
+ 
       
       // // registerApi
       const res=await registerApi(payload)
-      if(res){
-        toast({
-          title: "Scheduled: Catch up",
-          description: "Friday, February 10, 2023 at 5:57 PM",
-        })
+      console.log(res);
+      toast({
+        
+        description: res?.data?.message,
+      })
+      if(res?.data?.status==200) navigate('/login')
+       
+       
 
         
-      }
+      
+     
+
   };
   return (
     <div className="flex items-center justify-center min-h-screen bg-zinc-900">

@@ -23,6 +23,10 @@ export const paths = {
 
   profile: `${ROOTS.HOME}/users/:id`,
   profileDetail: `${ROOTS.HOME}/users/:id/edit`,
+  myFriend:`${ROOTS.HOME}/listMyFriend`,
+  myImage:`${ROOTS.HOME}/listImage`,
+  myVideo:`${ROOTS.HOME}/listVideo`,
+  listInfor:`${ROOTS.HOME}/myInfor`,
 
   settings: `${ROOTS.HOME}settings`,
 

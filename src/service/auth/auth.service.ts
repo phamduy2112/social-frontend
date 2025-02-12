@@ -16,3 +16,36 @@ export const registerApi =async (payload)=>{
             return error
     }
 }
+export const loginApi =async (payload)=>{
+    try {
+    
+       
+       return await axiosWithAuth.post(`auth/login`, payload);
+
+  
+    } catch (error) {
+            return error
+    }
+}
+
+export const verifyEmail=async(payload)=>{
+    try{
+        return await axiosWithAuth.post('auth/verify-email',payload);
+    }catch(err){
+        return err
+    }
+}
+export const verifyOTP=async(payload)=>{
+    try{
+        return await axiosWithAuth.post('auth/verify-otp',payload);
+    }catch(err){
+        return err
+    }
+}
+export const changePasswordWithOutToken=async(payload)=>{
+    try{
+        return await axiosWithAuth.post('auth/change-password-no-token',payload);
+    }catch(err){
+        return err
+    }
+}

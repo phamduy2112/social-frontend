@@ -6,7 +6,7 @@ import { LuUserRoundX } from "react-icons/lu";
 
 function MyFriends() {
   return (
-    <div className="bg-zinc-700/60 w-[100%] py-[1rem]">
+    <div className="bg-zinc-700/60 w-[100%] h-[100vh] py-[1rem]">
       <div>
         <h3 className="text-white text-[1.3rem] py-[.5rem] px-[1.2rem]">
           Bạn bè

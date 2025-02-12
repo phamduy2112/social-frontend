@@ -1,5 +1,7 @@
 import { URL_BACKEND } from '@/constant';
+import { useAppSelector } from '@/redux/hooks';
 import axios from 'axios'
+import store from "../redux/store";
 
 export const axiosWithAuth = axios.create({
     baseURL: `${URL_BACKEND}/`,
@@ -7,20 +9,20 @@ export const axiosWithAuth = axios.create({
 });
 
 // Request Interceptor
-// axiosWithAuth.interceptors.request.use(
-//     (config) => {
-//         // Lấy token từ Redux store thông qua store.getState()
-//         const token = store.getState().user.token; // Lấy token từ Redux state
-//         if (token) {
-//             // Thêm token vào headers nếu có
-//             config.headers['Token'] = `${token}`;
-//         }
-//         return config;
-//     },
-//     (error) => {
-//         return Promise.reject(error);
-//     }
-// );
+axiosWithAuth.interceptors.request.use(
+    (config) => {
+        // Lấy token từ Redux store thông qua store.getState()
+        const token = store.getState().userReducer.token; // Lấy token từ Redux state
+        if (token) {
+            // Thêm token vào headers nếu có
+            config.headers['authorization'] = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
 
 // // Response Interceptor
 // axiosWithAuth.interceptors.response.use(

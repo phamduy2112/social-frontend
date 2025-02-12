@@ -2,17 +2,24 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import React from 'react';
 import { AiOutlineFacebook, AiOutlineGoogle } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import * as Yup from 'yup';
+import { loginApi } from '@/service/auth/auth.service';
+import { toast } from '@/hooks/use-toast';
+import { useAppDispatch } from '@/redux/hooks';
+import { getUserDetailThunk, setLogin, setToken } from '@/redux/auth/User.slice';
 const Login = () => {
     const initialValues = {
       email: '',
       password:'',
 
     };
-  
+    const dispatch=useAppDispatch();
+
+    const navigate = useNavigate();
+
     const validationSchema = Yup.object({
       email: Yup.string()
         .email('Địa chỉ email không hợp lệ')
@@ -22,9 +29,23 @@ const Login = () => {
         .required('Mật khẩu là bắt buộc'),
     });
   
-    const handleSubmit = (values:any) => {
-      console.log('Gửi mã OTP đến:', values.email);
-      // Gửi mã OTP đến email
+    const handleSubmit = async (values:any) => {
+    
+      const payload={
+        email:values.email,
+        password:values.password
+      }
+            const res=await loginApi(payload)
+            toast({
+        
+              description: res?.data?.message,
+            })
+            if(res?.data?.message=="Thành công") {
+              dispatch(setLogin(true))
+              dispatch(setToken(res?.data?.content.access_token))
+              await dispatch(getUserDetailThunk())
+              navigate('/')}
+
     };
     return (
       <div className="flex items-center justify-center min-h-screen bg-zinc-900">
