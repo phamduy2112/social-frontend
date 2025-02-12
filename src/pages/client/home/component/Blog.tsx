@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { CiFaceSmile } from "react-icons/ci";
 import { PiSmileySadBold } from "react-icons/pi";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 function Blog() {
   return (
@@ -154,7 +155,16 @@ function Blog() {
  
 
     </p>
-    <BsThreeDots  className="cursor-pointer"/>
+    <DropdownMenu>
+  <DropdownMenuTrigger>    <BsThreeDots  className="cursor-pointer"/>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent className="bg-zinc-800 text-white ">
+
+    <DropdownMenuItem className="cursor-pointer">Sửa</DropdownMenuItem>
+    <DropdownMenuItem className="cursor-pointer">Xóa</DropdownMenuItem>
+
+  </DropdownMenuContent>
+</DropdownMenu>
     </div>
     
     <div className="flex gap-[.8rem] mt-1">
