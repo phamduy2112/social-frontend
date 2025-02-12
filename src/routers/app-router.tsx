@@ -28,6 +28,7 @@ import SignupForm from '@/pages/client/auth/Sign';
 import ForgotPassword from '@/pages/client/auth/forgotPassword/ForgotPassword';
 import MyInfor from '@/pages/client/profile/component/MyInfor';
 import MyFriends from '@/pages/client/profile/component/MyFriends';
+import Dashboard from '@/layouts/Admin/Dashboard';
 
 // ----------------------------------------------------------------------
 const router = createBrowserRouter(
@@ -59,6 +60,8 @@ const router = createBrowserRouter(
       {/* <Route   element={<Profile />} >
             <Route path={paths.profile} element={<MyProfile />} />
           </Route> */}
+
+          <Route path={paths.dashboard} element={<Dashboard />} />
     </Route>,
   ),
 );
