@@ -1,17 +1,17 @@
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import React from 'react';
+
 import { AiOutlineFacebook, AiOutlineGoogle } from 'react-icons/ai';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import * as Yup from 'yup';
 import { loginApi } from '@/service/auth/auth.service';
 import { toast } from '@/hooks/use-toast';
 import { useAppDispatch } from '@/redux/hooks';
-import { getUserDetailThunk, setLogin, setToken } from '@/redux/auth/User.slice';
+import { getUserDetailThunk, setLogin, setToken } from '@/redux/user/User.slice';
+import { IPayloadLogin } from '@/types/auth.type';
 const Login = () => {
-    const initialValues = {
+    const initialValues:IPayloadLogin = {
       email: '',
       password:'',
 
@@ -29,7 +29,7 @@ const Login = () => {
         .required('Mật khẩu là bắt buộc'),
     });
   
-    const handleSubmit = async (values:any) => {
+    const handleSubmit = async (values:IPayloadLogin) => {
     
       const payload={
         email:values.email,
@@ -38,11 +38,11 @@ const Login = () => {
             const res=await loginApi(payload)
             toast({
         
-              description: res?.data?.message,
+              description: res?.message,
             })
-            if(res?.data?.message=="Thành công") {
+            if(res?.message=="Thành công") {
               dispatch(setLogin(true))
-              dispatch(setToken(res?.data?.content.access_token))
+              dispatch(setToken(res?.content.access_token))
               await dispatch(getUserDetailThunk())
               navigate('/')}
 

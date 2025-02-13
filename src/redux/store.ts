@@ -10,7 +10,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // Sử dụng localStorage cho web
 import { authReducer } from "./auth/Auth.slice";
-import { userReducer } from "./auth/User.slice";
+import { userReducer } from "./user/User.slice";
 
 
 const persistConfig = {

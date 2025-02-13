@@ -14,7 +14,7 @@ function MyProfile() {
   return (
     <div>
          <ResizablePanelGroup direction='horizontal' className=' flex   h-full overflow-hidden  gap-6'>
-         <ResizablePanel defaultSize={40} minSize={isMobile ? 0 : 10} maxSize={40} className="">
+         <ResizablePanel defaultSize={40} minSize={isMobile ? 0 : 10} maxSize={40} className="hidden md:block">
     <div className="py-[1rem] px-[1.5rem] bg-zinc-800">
     <Bio/>
         <div className="mt-[1rem]">

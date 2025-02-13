@@ -1,6 +1,6 @@
 // login:false,
 // import { registerApi } from "@/service/auth/auth.service";
-import { getUserApi } from "@/service/user/user.service";
+import { getUserApi, updateUserApi } from "@/service/user/user.service";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
@@ -9,7 +9,21 @@ export const getUserDetailThunk = createAsyncThunk(
     async () => {      
       try {
         const resp = await getUserApi();
-        return resp;
+        return resp.data.content;
+      } catch (e) {
+        console.log(e);
+      }
+    },
+  );
+export const updateUserDetailThunk = createAsyncThunk(
+    "updateUserDetailThunk",
+    async (data,{dispatch}) => {      
+      try {
+        const resp = await updateUserApi(data);
+        const response = await dispatch(getUserApi);
+
+        return response.payload;
+  
       } catch (e) {
         console.log(e);
       }

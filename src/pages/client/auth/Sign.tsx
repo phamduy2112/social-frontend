@@ -1,17 +1,15 @@
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import React, { useState } from 'react';
 import { AiOutlineFacebook, AiOutlineGoogle } from 'react-icons/ai';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { registerApi } from '@/service/auth/auth.service';
-import { Toast } from '@/components/ui/toast';
 import { toast } from '@/hooks/use-toast';
+import { IPayLoadRegister } from '@/types/auth.type';
 
 const SignupForm = () => {
-  const initialValues = {
+  const initialValues:IPayLoadRegister = {
     fullname:'',
     email: '',
     password:'',
@@ -33,7 +31,7 @@ const SignupForm = () => {
       .required('Xác nhận mật khẩu là bắt buộc'),
   });
 
-  const handleSubmit = async (values:any) => {
+  const handleSubmit = async (values:IPayLoadRegister) => {
       const payload={
         full_name:values.fullname,
         email:values.email,
@@ -43,12 +41,12 @@ const SignupForm = () => {
       
       // // registerApi
       const res=await registerApi(payload)
-      console.log(res);
+    
       toast({
         
-        description: res?.data?.message,
+        description: res?.message,
       })
-      if(res?.data?.status==200) navigate('/login')
+      if(res?.status==200) navigate('/login')
        
        
 

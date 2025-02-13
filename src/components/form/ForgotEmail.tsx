@@ -1,8 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import React, { useState } from 'react';
-import OtpInput from './OtpFormPass';
-import ChangePassword from './ChanggPassword';
+
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import * as Yup from 'yup';

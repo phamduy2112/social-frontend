@@ -46,8 +46,8 @@ const router = createBrowserRouter(
           <Route   element={<Profile />} >
             <Route path={paths.profile} element={<MyProfile />} />
           </Route>
-          <Route path={paths.profileDetail} element={<EditProfile />} />
-          <Route path={paths.myFriend} element={<MyFriends />} />
+          <Route path={paths.profileDetail} element={<MyInfor />} />
+          <Route path={paths.myFriends} element={<MyFriends />} />
           <Route path={paths.following} element={<Following />} />
           <Route path={paths.exploreDetail} element={<ExploreDetail />}></Route>
           <Route path={paths.explore} element={<Explore />} />
