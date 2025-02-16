@@ -4,8 +4,14 @@ import { Input } from "@/components/ui/input";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import * as Yup from "yup";
+import { useAppSelector } from "@/redux/hooks";
+import { changePasswordWithOutToken } from "@/service/auth/auth.service";
+import { toast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 const ChangePassword = () => {
 
+  const email=useAppSelector((state)=>state.auth.email)
+  const navigate=useNavigate();
 
   const initialValues = {
     password: "",
@@ -17,32 +23,25 @@ const ChangePassword = () => {
     confirmPassword: Yup.string()
     .required("Xác nhận mật khẩu là bắt buộc"),
   });
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit =async  (values) => {
 
-    // Kiểm tra xem mật khẩu và xác nhận mật khẩu có khớp không
+    const payload={
+      password:values.password,
+      email,
+    }
+                const res=await changePasswordWithOutToken(payload)
+    if(res){
+      toast({
+        description:"Đổi mật khẩu thành công"
+      })
+      navigate('/login')
+    }
+    
+    
+    
  
 
-    // Gọi API để thay đổi mật khẩu
-    // Ví dụ:
-    // fetch('/api/change-password', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ password }),
-    // })
-    // .then(response => {
-    //   if (response.ok) {
-    //     setMessage('Mật khẩu đã được thay đổi thành công!');
-    //   } else {
-    //     setMessage('Có lỗi xảy ra. Vui lòng thử lại.');
-    //   }
-    // })
-    // .catch(error => {
-    //   console.error('Error:', error);
-    //   setMessage('Có lỗi xảy ra. Vui lòng thử lại.');
-    // });
+   
   };
 
   return (

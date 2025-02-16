@@ -106,7 +106,7 @@ function Header() {
               <DropdownMenuItem className="hover:bg-zinc-700 cursor-pointer">Profile</DropdownMenuItem>
               <DropdownMenuItem className="hover:bg-zinc-700 cursor-pointer">Billing</DropdownMenuItem>
               <DropdownMenuItem className="hover:bg-zinc-700 cursor-pointer">Team</DropdownMenuItem>
-              <DropdownMenuItem className="hover:bg-zinc-700 cursor-pointer">Subscription</DropdownMenuItem>
+              <DropdownMenuItem className="hover:bg-zinc-700 cursor-pointer">Đăng xuất</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

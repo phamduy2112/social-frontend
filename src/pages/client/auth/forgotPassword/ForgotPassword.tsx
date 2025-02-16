@@ -21,7 +21,7 @@ const ForgotPassword = () => {
       number === 0 ? (
       <ForgotEmail handleSetNumber={handleSetNumber}/>
       ): number===1? (
-        <OtpInput/>
+        <OtpInput handleSetNumber={handleSetNumber}/>
       ):(<ChangePassword/>)
      }
     </div>
