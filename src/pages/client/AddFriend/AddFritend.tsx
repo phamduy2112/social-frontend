@@ -5,7 +5,7 @@ import { IoSchoolSharp } from 'react-icons/io5'
 import CreateBlog from '../home/component/CreateBlog'
 import Blog from '../home/component/Blog'
 import { Link } from 'lucide-react'
-import Header from '@/layout/component/header/Header'
+import Header from '@/layouts/components/header/Header'
 import { FaUserFriends } from 'react-icons/fa'
 import ItemFriend from './component/ItemFriend'
 

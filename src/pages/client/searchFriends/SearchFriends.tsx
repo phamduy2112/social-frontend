@@ -1,5 +1,5 @@
 import { ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
-import Header from '@/layout/component/header/Header'
+import Header from '@/layouts/components/header/Header'
 import React from 'react'
 import { FaUserFriends } from 'react-icons/fa'
 import ListSearchFriends from './component/ListSearchFriends'

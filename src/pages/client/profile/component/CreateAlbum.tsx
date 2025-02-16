@@ -3,7 +3,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Input } from '@/components/ui/input'
 import { ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
 import { Textarea } from '@/components/ui/textarea'
-import Header from '@/layout/component/header/Header'
+import Header from '@/layouts/components/header/Header'
 import { Label } from '@radix-ui/react-dropdown-menu'
 import React from 'react'
 import { BsThreeDots } from 'react-icons/bs'

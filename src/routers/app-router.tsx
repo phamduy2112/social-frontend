@@ -1,11 +1,11 @@
 import { SidebarRight } from '@/layouts/components';
 import MainLayout from '@/layouts/main-layout';
 import SidebySideLayout from '@/layouts/sbs-layout';
-import ErrorPage from '@/pages/error/error-page';
-import { Message } from '@/pages/message';
-import Notifications from '@/pages/notifications/notifications';
+import ErrorPage from '@/pages/client/error/error-page';
+import { Message } from '@/pages/client/message';
+import Notifications from '@/pages/client/notifications/notifications';
 import { PostDetail } from '@/pages/post-detail';
-import Settings from '@/pages/settings/settings';
+import Settings from '@/pages/client/settings/settings';
 import { paths } from '@/routers/path';
 import {
   createBrowserRouter,
@@ -14,12 +14,10 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import { Bookmarks } from '@/pages/bookmarks';
-import { persistStore } from 'redux-persist';
 
-import { Following } from '@/pages/following';
-import { ExploreDetail } from '@/pages/explore-detail';
-import { Explore } from '@/pages/explore';
-import { EditProfile } from '@/pages/edit-profile';
+import { Following } from '@/pages/client/following';
+import { ExploreDetail } from '@/pages/client/explore-detail';
+import { Explore } from '@/pages/client/explore';
 import Home from '@/pages/client/home/Home';
 import MyProfile from '@/pages/client/profile/component/MyProfile';
 import Profile from '@/pages/client/profile/Profile';

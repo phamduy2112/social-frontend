@@ -7,7 +7,6 @@ import Leave from '@/components/icons/leave';
 import SettingSlider from '@/components/icons/setting-slider';
 import { Typography } from '@/components/typography';
 import useBreakPoint from '@/hooks/use-breakpoint';
-import CreatPost from '@/pages/home/creat-post';
 import { paths } from '@/routers/path';
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -209,7 +208,7 @@ const Sidebar: React.FC = () => {
           )}
         </section>
       </aside>
-      {isCreatePost && <CreatPost onBack={handleCreatePost} />}
+      {/* {isCreatePost && <CreatPost onBack={handleCreatePost} />} */}
     </>
   );
 };

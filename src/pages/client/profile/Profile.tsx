@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
-import Header from "@/layout/component/header/Header";
+import Header from "@/layouts/components/header/Header";
 import React from "react";
 import { FaPen } from "react-icons/fa";
 import CreateBlog from "../home/component/CreateBlog";

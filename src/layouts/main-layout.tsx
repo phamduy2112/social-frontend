@@ -1,5 +1,5 @@
 import useBreakPoint from '@/hooks/use-breakpoint';
-import Header from '@/layout/component/header/Header';
+import Header from '@/layouts/components/header/Header';
 import BottomNavigationBar from '@/layouts/components/bottom-navigation-bar';
 import Sidebar from '@/layouts/components/sidebar';
 import eventBus from '@/utils/event-emitter';
