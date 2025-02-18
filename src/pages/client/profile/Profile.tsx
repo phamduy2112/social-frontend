@@ -7,10 +7,11 @@ import { FaPen } from "react-icons/fa";
 import CreateBlog from "../home/component/CreateBlog";
 import Blog from "../home/component/Blog";
 import { IoSchoolSharp } from "react-icons/io5";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { GrPrevious } from "react-icons/gr";
 
 function Profile() {
+  const navigate=useNavigate();
   const  isMobile=false
   return (
     <div>
@@ -48,7 +49,7 @@ function Profile() {
            </div>
            
            <div>
-            <Button>
+            <Button onClick={()=>navigate('/settings?view=account-settings')}>
             <FaPen />
             Chỉnh sửa thông tin
 </Button>   

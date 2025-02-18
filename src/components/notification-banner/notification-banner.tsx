@@ -36,7 +36,7 @@ const NotificationBanner = () => {
           </div>
         </button>
       </span>
-      <img src="img/laptop.png" alt="" className="w-[104px] h-[90px]" />
+      <img src="https://scontent.fhan4-1.fna.fbcdn.net/v/t39.30808-6/473970633_3696832523866904_758678437992717420_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=tPrewXb5dKAQ7kNvgEDZJ1c&_nc_oc=AdjzGtNgdlcbzEqVhHV7gmxNuyP1KLvQOjf3dO6EHI9Bv1zMIpaqEasnwGjJlmqI5Lg&_nc_zt=23&_nc_ht=scontent.fhan4-1.fna&_nc_gid=Av0xWCw5-i3YRK6pb-Tb6Gh&oh=00_AYDrgAfIHdb-7-dwK3XsmwOnAfXBYrPszrFfNatm4IMXIA&oe=67B8B896" alt="" className="w-[104px] h-[90px]" />
       <div className="flex-1 flex-col flex mr-6 gap-3">
         <span className="gap-1 flex flex-col">
           <p className="base2-m opacity-80 text-white self-stretch">

@@ -1,6 +1,7 @@
 // login:false,
 // import { registerApi } from "@/service/auth/auth.service";
 import { getUserApi, updateUserApi } from "@/service/user/user.service";
+import { userInitalState } from "@/types/user.type";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
@@ -30,7 +31,7 @@ export const updateUserDetailThunk = createAsyncThunk(
     },
   );
   
-  const initialState = {
+  const initialState:userInitalState = {
     userDetail:null,
     token:null,
     login:false,

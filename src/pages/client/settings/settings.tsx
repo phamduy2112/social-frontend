@@ -52,7 +52,7 @@ const SETTINGS: Setting[] = [
       title: 'Moyo',
       subtile: '@moyoshiro',
       status: 'Active',
-      avatarUrl: 'img/avatar-7.png',
+      avatarUrl: 'https://scontent.fhan4-1.fna.fbcdn.net/v/t39.30808-1/473970633_3696832523866904_758678437992717420_n.jpg?stp=c0.80.480.480a_dst-jpg_s160x160_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_ohc=tPrewXb5dKAQ7kNvgEDZJ1c&_nc_oc=AdjzGtNgdlcbzEqVhHV7gmxNuyP1KLvQOjf3dO6EHI9Bv1zMIpaqEasnwGjJlmqI5Lg&_nc_zt=24&_nc_ht=scontent.fhan4-1.fna&_nc_gid=ABj3zF-4UcVRzbkg3BK2J_M&oh=00_AYB0-4VdamC7akK0IGUQggNBJPewCl5VWuCHD1LJ65_YLw&oe=67B8D014',
     },
   },
   {
@@ -82,7 +82,7 @@ const Settings = ({}: SettingsProps) => {
     'account-settings': <AccountsSection />,
     notifications: <NotificationsSection />,
     notfound: (
-      <section className="h-full w-full flex items-center justify-center text-tertiary text-base2 font-semibold">
+      <section className="h-full w-full flex items-center justify-center text-white text-base2 font-semibold">
         Not Found
       </section>
     ),
@@ -106,7 +106,7 @@ const Settings = ({}: SettingsProps) => {
   };
 
   return (
-    <div className="h-screen w-full flex relative">
+    <div className="h-screen w-full flex relative text-white">
       <div className="grow lg:max-w-[316px] 2xl:max-w-[376px]  transition-[max-width] h-full bg-zinc-800 p-3 flex flex-col gap-3">
         <section
           id="settings-appbar"
@@ -141,22 +141,22 @@ const Settings = ({}: SettingsProps) => {
                     alt={setting.content.title}
                     isOnline={setting.content.status === 'Active'}
                   />
-                  <div className="flex-1 flex flex-col items-start">
+                  <div className="flex-1 flex flex-col items-center ">
                     <Typography
                       level="baser"
                       className="font-medium text-white"
                     >
-                      {setting.content.title}
+                    asdasd
                     </Typography>
                     <Typography
                       level="baser"
-                      className="font-medium text-xs text-tertiary"
+                      className="font-medium text-xs text-white"
                     >
-                      {setting.content.subtile}
+                 asdasd
                     </Typography>
                   </div>
                   <span
-                    className={`${isActive && 'bg-neutral1-5 rounded-full -rotate-90 '} transition-all p-1.5 flex items-center justify-center`}
+                    className={`${isActive && 'bg-neutral1-5 rounded-full -rotate-90 '} text-red-600 transition-all p-1.5 flex items-center justify-center`}
                   >
                     <ChevronRight />
                   </span>
@@ -193,7 +193,7 @@ const Settings = ({}: SettingsProps) => {
         </ul>
       </div>
       {isLargeScreen && (
-        <div className="flex-1 h-full bg-background p-3 flex flex-col gap-3">
+        <div className="flex-1 h-full bg-zinc-800  p-3 flex flex-col gap-3">
           <AppBar
             title={settingLabel}
             trailing={
@@ -206,7 +206,7 @@ const Settings = ({}: SettingsProps) => {
         </div>
       )}
       <section
-        className={`fixed z-99 inset-0 h-screen p-3 flex flex-col gap-3 bg-background transition-all duration-300 ${currentView && !isLargeScreen ? ' opacity-100 translate-x-0 ' : ' opacity-0 translate-x-full '}  before:fixed before:inset-0 before:bg-[#313131]`}
+        className={`fixed z-99 inset-0 h-screen text-white p-3 flex flex-col gap-3 bg-background transition-all duration-300 ${currentView && !isLargeScreen ? ' opacity-100 translate-x-0 ' : ' opacity-0 translate-x-full '}  before:fixed before:inset-0 before:bg-[#313131]`}
       >
         <AppBar
           className="z-1"
@@ -238,7 +238,7 @@ export const AccountsSection = () => {
         <div className="inline-block relative rounded-full bg-green-200 z-20">
           <img
             id="avatar"
-            src="img/avatar-7.png"
+            src="https://scontent.fhan4-1.fna.fbcdn.net/v/t39.30808-1/473970633_3696832523866904_758678437992717420_n.jpg?stp=c0.80.480.480a_dst-jpg_s160x160_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_ohc=tPrewXb5dKAQ7kNvgEDZJ1c&_nc_oc=AdjzGtNgdlcbzEqVhHV7gmxNuyP1KLvQOjf3dO6EHI9Bv1zMIpaqEasnwGjJlmqI5Lg&_nc_zt=24&_nc_ht=scontent.fhan4-1.fna&_nc_gid=ABj3zF-4UcVRzbkg3BK2J_M&oh=00_AYB0-4VdamC7akK0IGUQggNBJPewCl5VWuCHD1LJ65_YLw&oe=67B8D014"
             alt=""
             className="rounded-full h-16 w-16 relative z-10"
           />

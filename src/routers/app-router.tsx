@@ -4,7 +4,6 @@ import SidebySideLayout from '@/layouts/sbs-layout';
 import ErrorPage from '@/pages/client/error/error-page';
 import { Message } from '@/pages/client/message';
 import Notifications from '@/pages/client/notifications/notifications';
-import { PostDetail } from '@/pages/post-detail';
 import Settings from '@/pages/client/settings/settings';
 import { paths } from '@/routers/path';
 import {
@@ -13,7 +12,7 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import { Bookmarks } from '@/pages/bookmarks';
+
 
 import { Following } from '@/pages/client/following';
 import { ExploreDetail } from '@/pages/client/explore-detail';
@@ -27,6 +26,8 @@ import ForgotPassword from '@/pages/client/auth/forgotPassword/ForgotPassword';
 import MyInfor from '@/pages/client/profile/component/MyInfor';
 import MyFriends from '@/pages/client/profile/component/MyFriends';
 import Dashboard from '@/layouts/Admin/Dashboard';
+import { PostDetail } from '@/pages/client/post-detail';
+import { Bookmarks } from '@/pages/client/bookmarks';
 
 // ----------------------------------------------------------------------
 const router = createBrowserRouter(

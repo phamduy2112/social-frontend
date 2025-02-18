@@ -1,5 +1,7 @@
 import { Role, Status } from "./enum";
 
+
+
 export type TPayloadUser = {
     id: number; // SERIAL PRIMARY KEY, số nguyên tự tăng
     fullName?: string | null; // VARCHAR(50) NULL, cho phép NULL
@@ -15,3 +17,9 @@ export type TPayloadUser = {
     bio?: string | null; // TEXT NULL, cho phép NULL
     createdAt?: Date; // TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   };
+
+  export interface userInitalState {
+    userDetail:TPayloadUser |null,
+    login:boolean,
+    token:string| null
+  }
