@@ -35,7 +35,7 @@ const router = createBrowserRouter(
     <Route errorElement={<ErrorPage />}>
       <Route path={paths.login} element={<Login />} />
       <Route path={paths.register} element={<SignupForm />} />
-      <Route path={paths.forgotPassword} element={<ForgotPassword/>} />
+      <Route path={paths.forgotPassword} element={<ForgotPassword number={1}/>} />
       <Route path={paths.home} element={<MainLayout />}>
         {/*Pages with right sidebar  */}
         <Route element={<SidebySideLayout sideComponent={<SidebarRight />} />}>

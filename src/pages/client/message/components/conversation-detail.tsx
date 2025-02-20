@@ -96,7 +96,7 @@ export default function ConversationDetail() {
 
       <section
         id="chat-container"
-        className="flex flex-col gap-2 h-[calc(100vh-150px)] overflow-y-auto items-center justify-start p-3"
+        className="flex flex-col gap-2 h-[78vh] overflow-y-auto items-center justify-start p-3"
       >
         {conversation.messages?.map((message, index) => (
           <MessageItem key={index} message={message} />

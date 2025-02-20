@@ -4,15 +4,32 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import React, { useState } from 'react'
+import { FaLock } from 'react-icons/fa'
+import { MdArrowDropDown } from 'react-icons/md'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/swiper-bundle.css'
+
+import { Navigation, Pagination } from 'swiper/modules'
+import ModalUserPrivate from '@/components/modal/ModalUserPrivate'
 
 function CreateBlog() {
-  const [image, setImage] = useState(null)
+  const [images, setImages] = useState<string[]>([]) // Lưu danh sách ảnh
+  const [title, setTitle] = useState('')
+  const [privacy, setPrivacy] = useState('private')
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0]
-    if (file) {
-      setImage(URL.createObjectURL(file)) // Hiển thị ảnh ngay khi người dùng chọn
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const files = Array.from(e.target.files) // Lấy danh sách file
+      const imageUrls = files.map(file => URL.createObjectURL(file)) // Tạo URL cho ảnh
+      setImages(prev => [...prev, ...imageUrls]) // Thêm vào danh sách ảnh
     }
+  }
+
+  const handleSubmit = () => {
+    console.log('Title:', title)
+    console.log('Privacy:', privacy)
+    console.log('Images:', images)
+    // Gửi dữ liệu lên backend tại đây
   }
 
   return (
@@ -27,45 +44,39 @@ function CreateBlog() {
       <Dialog>
         <DialogTrigger className="w-full">
           <div className="flex w-full items-center space-x-2">
-            <Input
-              type="email"
-              placeholder="Tìm kiếm theo tên duybooks"
-              className="rounded-full"
-              height={10}
-            />
+            <Input type="text" placeholder="Bạn đang nghĩ gì?" className="rounded-full" />
           </div>
         </DialogTrigger>
-        <DialogContent className='bg-zinc-800 text-white'>
+        <DialogContent className="bg-zinc-800 text-white">
           <DialogHeader>
             <DialogTitle className="text-center pb-2">Tạo bài viết</DialogTitle>
-
-            {/* Đường kẻ ngang */}
             <div className="my-4 border-t border-gray-300" />
-
           </DialogHeader>
 
-          {/* Body của modal */}
-          <div className="">
-         <div className='flex gap-3'>
-         <div className="rounded-full">
-        <Avatar className="w-12 h-12 cursor-pointer rounded-full mb-[1rem]">
-          <AvatarImage src="https://github.com/shadcn.png" alt="asdas" />
-          <AvatarFallback>Duy</AvatarFallback>
-        </Avatar>
-      </div>
-      <p>Phạm Duy</p>
-         </div>
+          <div>
+            <div className="flex gap-3">
+              <Avatar className="w-12 h-12 cursor-pointer rounded-full">
+                <AvatarImage src="https://github.com/shadcn.png" alt="asdas" />
+                <AvatarFallback>Duy</AvatarFallback>
+              </Avatar>
+            <ModalUserPrivate/>
+            </div>
 
-            <Textarea placeholder='Mời bạn nhập bài viết' className='h-[5rem]' />
+            <Textarea
+              placeholder="Mời bạn nhập bài viết"
+              className="h-[5rem]"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
 
-            {/* Thêm input ảnh */}
             <div className="mt-4">
               <label className="block text-sm font-semibold">Chọn ảnh:</label>
               <input
                 type="file"
                 accept="image/*"
+                multiple // Cho phép chọn nhiều ảnh
                 onChange={handleImageChange}
-                className="hidden" // Ẩn input file gốc
+                className="hidden"
                 id="file-upload"
               />
               <label
@@ -74,18 +85,28 @@ function CreateBlog() {
               >
                 Chọn file
               </label>
-              {image && (
-                <div className="mt-4 h-[300px] rounded-lg overflow-hidden shadow-lg">
-                  <img src={image} alt="Uploaded preview" className="w-full h-full object-cover transition-transform duration-200 hover:scale-105" />
+
+              {images.length > 0 && (
+                <div className="mt-4 rounded-lg overflow-hidden shadow-lg">
+                  <Swiper
+                    modules={[Navigation, Pagination]}
+                    navigation
+                    pagination={{ clickable: true }}
+                    className="w-[450px] h-[300px]"
+                  >
+                    {images.map((img, index) => (
+                      <SwiperSlide key={index} className='w-[100%]'>
+                        <img src={img} alt={`Uploaded preview ${index}`} className="w-[100%] h-full object-cover" />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
                 </div>
               )}
             </div>
           </div>
 
-          {/* Đường kẻ ngang giữa Body và Footer */}
           <div className="my-4 border-t border-gray-300" />
-
-          <Button>Đăng bài</Button>
+          <Button onClick={handleSubmit}>Đăng bài</Button>
         </DialogContent>
       </Dialog>
     </div>

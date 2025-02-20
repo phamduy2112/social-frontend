@@ -1,6 +1,6 @@
 import { axiosWithAuth } from "../axios.config";
 
-export const createFriend = async (payload: any): Promise<any> => {
+export const createFriendsApi = async (payload: any): Promise<any> => {
   try {
 
        const authApi=await axiosWithAuth.post(`friends/add-friend/${payload.friendId}`);

@@ -27,9 +27,11 @@ import SearchInput from '@/components/search-input/search-input';
 import { SettingCard, SettingCardItem } from '@/components/setting-card';
 import { Toggle } from '@/components/toggle';
 import { Typography } from '@/components/typography';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import useBreakPoint from '@/hooks/use-breakpoint';
 import { paths } from '@/routers/path';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import ForgotPassword from '../auth/forgotPassword/ForgotPassword';
 
 type Setting = {
   key: string;
@@ -277,13 +279,18 @@ export const AccountsSection = () => {
               Password
             </Typography>
           </span>
-          <button
+      
+          <Dialog>
+  <DialogTrigger>    <button
             id="openForgotPassModal"
-            // onclick="createForgotPasswordModal();"
             className="text-white font-rubik text-sm opacity-80 group-hover/item:opacity-100 "
           >
             Change
-          </button>
+          </button></DialogTrigger>
+  <DialogContent className='bg-zinc-800 text-white border border-zinc-700'>
+   <ForgotPassword number={1} />
+  </DialogContent>
+</Dialog>
         </SettingCardItem>
         <SettingCardItem>
           <span className="inline-flex gap-3 items-center">
