@@ -7,8 +7,9 @@ import { FaPen } from "react-icons/fa";
 import CreateBlog from "../home/component/CreateBlog";
 import Blog from "../home/component/Blog";
 import { IoSchoolSharp } from "react-icons/io5";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { GrPrevious } from "react-icons/gr";
+import { paths } from "@/routers/path";
 
 function Profile() {
   const navigate=useNavigate();
@@ -58,14 +59,56 @@ function Profile() {
             </div>
         
          
-           <div className="pt-4 flex gap-3 items-center">
-                <p className="text-[1rem] cursor-pointer text-zinc-300">Bài viết</p>
-                <p className="text-[1rem] cursor-pointer text-zinc-300">Giới thiệu</p>
-                <p className="text-[1rem] cursor-pointer text-zinc-300">Bạn bè</p>
-                <p className="text-[1rem] cursor-pointer text-zinc-300">Ảnh</p>
-                <p className="text-[1rem] cursor-pointer text-zinc-300">Video</p>
-                <p className="text-[1rem] cursor-pointer text-zinc-300">Xem thêm</p>
-           
+            <div className="pt-4 flex gap-3 items-center">
+              <NavLink
+                to="users/1"
+                end
+                className={({ isActive }) =>
+                  isActive ? "text-white border-b-2 border-blue-500" : "text-zinc-300"
+                }
+              >
+                Bài viết
+              </NavLink>
+              <NavLink
+                to="user-detail"
+                className={({ isActive }) =>
+                  isActive ? "text-white border-b-2 border-blue-500" : "text-zinc-300"
+                }
+              >
+                Giới thiệu
+              </NavLink>
+              <NavLink
+                to="listMyFriends"
+                className={({ isActive }) =>
+                  isActive ? "text-white border-b-2 border-blue-500" : "text-zinc-300"
+                }
+              >
+                Bạn bè
+              </NavLink>
+              <NavLink
+                to="listImage"
+                className={({ isActive }) =>
+                  isActive ? "text-white border-b-2 border-blue-500" : "text-zinc-300"
+                }
+              >
+                Ảnh
+              </NavLink>
+              <NavLink
+                to="videos"
+                className={({ isActive }) =>
+                  isActive ? "text-white border-b-2 border-blue-500" : "text-zinc-300"
+                }
+              >
+                Video
+              </NavLink>
+              <NavLink
+                to="more"
+                className={({ isActive }) =>
+                  isActive ? "text-white border-b-2 border-blue-500" : "text-zinc-300"
+                }
+              >
+                Xem thêm
+              </NavLink>
             </div>
           </div>
           {/*  */}

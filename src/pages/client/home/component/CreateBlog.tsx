@@ -11,11 +11,12 @@ import 'swiper/swiper-bundle.css'
 
 import { Navigation, Pagination } from 'swiper/modules'
 import ModalUserPrivate from '@/components/modal/ModalUserPrivate'
+import { optionsDataUser } from '@/utils/data/DataUser'
 
 function CreateBlog() {
   const [images, setImages] = useState<string[]>([]) // Lưu danh sách ảnh
   const [title, setTitle] = useState('')
-  const [privacy, setPrivacy] = useState('private')
+  const [selectedOption, setSelectedOption] = useState<any>(optionsDataUser[0]);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -24,14 +25,18 @@ function CreateBlog() {
       setImages(prev => [...prev, ...imageUrls]) // Thêm vào danh sách ảnh
     }
   }
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSubmit = () => {
-    console.log('Title:', title)
-    console.log('Privacy:', privacy)
-    console.log('Images:', images)
-    // Gửi dữ liệu lên backend tại đây
+    const data={
+      title,
+      privacy: selectedOption.value,
+      images
+    }
+   console.log(data)
   }
 
+  
   return (
     <div className="flex gap-[1rem] border border-transparent pb-4 border-b-zinc-500">
       <div className="w-[50px] rounded-full">
@@ -41,8 +46,16 @@ function CreateBlog() {
         </Avatar>
       </div>
 
-      <Dialog>
-        <DialogTrigger className="w-full">
+      <Dialog
+  open={isOpen}
+  onOpenChange={(isOpen) => {
+    setIsOpen(isOpen);
+    if (!isOpen) {
+      setTitle('');
+      setImages([]);
+    }
+  }}
+>      <DialogTrigger className="w-full">
           <div className="flex w-full items-center space-x-2">
             <Input type="text" placeholder="Bạn đang nghĩ gì?" className="rounded-full" />
           </div>
@@ -59,7 +72,9 @@ function CreateBlog() {
                 <AvatarImage src="https://github.com/shadcn.png" alt="asdas" />
                 <AvatarFallback>Duy</AvatarFallback>
               </Avatar>
-            <ModalUserPrivate/>
+              <div>
+              <ModalUserPrivate selectedOption={selectedOption} setSelectedOption={setSelectedOption} />              </div>
+            
             </div>
 
             <Textarea

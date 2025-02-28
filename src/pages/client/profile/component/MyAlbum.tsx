@@ -5,35 +5,35 @@ const Album = () => {
   const [albums, setAlbums] = useState([
     {
       title: 'Album 1',
-      cover: 'https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-1/473970633_3696832523866904_758678437992717420_n.jpg?stp=c0.80.480.480a_dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeHZlmluPiyFc_Zs_rGdmfdr_oT90JzeaDn-hP3QnN5oOQz7OIPnbUxDZ_JiiT9sO74usoyqoX4_ydlqraEVMv-U&_nc_ohc=2KYKHuMkaXsQ7kNvgGPE7DL&_nc_oc=AdglR8n15cNTeEyruPz-XBpBiAN1F3t0JQCef_uN_2-A2rSe0rpC26HEhupZTRGH5ZQSW2H77_n95gtfx0Q-k-yY&_nc_zt=24&_nc_ht=scontent.fsgn8-4.fna&_nc_gid=AWtcAfwyoSXWCOb4cQ4go6e&oh=00_AYD1BunQzZewXisdWF1vRv1bh86fzAR0M5YQMDVkNc9XFg&oe=67941E54',
+      cover: 'https://scontent.fhan4-4.fna.fbcdn.net/v/t39.30808-6/480816026_3722212301328926_8576528358840974159_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=4tDyM9HFwUMQ7kNvgHwDZHp&_nc_oc=AdiaehlR5IuXlqMiryE0S5NiEBY7QFqJ7W4v9x7ijhsbj3uAa--NK7UENv3zMtFCvmY&_nc_zt=23&_nc_ht=scontent.fhan4-4.fna&_nc_gid=AKFrq_wZYnJsaLslGh0w8yu&oh=00_AYDdjagfUOFHus32p56I5N1saiwFqnj74GaoT6fFwGpYfQ&oe=67C1A619',
     },
     {
       title: 'Album 1',
-      cover: 'https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-1/473970633_3696832523866904_758678437992717420_n.jpg?stp=c0.80.480.480a_dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeHZlmluPiyFc_Zs_rGdmfdr_oT90JzeaDn-hP3QnN5oOQz7OIPnbUxDZ_JiiT9sO74usoyqoX4_ydlqraEVMv-U&_nc_ohc=2KYKHuMkaXsQ7kNvgGPE7DL&_nc_oc=AdglR8n15cNTeEyruPz-XBpBiAN1F3t0JQCef_uN_2-A2rSe0rpC26HEhupZTRGH5ZQSW2H77_n95gtfx0Q-k-yY&_nc_zt=24&_nc_ht=scontent.fsgn8-4.fna&_nc_gid=AWtcAfwyoSXWCOb4cQ4go6e&oh=00_AYD1BunQzZewXisdWF1vRv1bh86fzAR0M5YQMDVkNc9XFg&oe=67941E54',
+      cover: 'https://scontent.fhan4-4.fna.fbcdn.net/v/t39.30808-6/480816026_3722212301328926_8576528358840974159_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=4tDyM9HFwUMQ7kNvgHwDZHp&_nc_oc=AdiaehlR5IuXlqMiryE0S5NiEBY7QFqJ7W4v9x7ijhsbj3uAa--NK7UENv3zMtFCvmY&_nc_zt=23&_nc_ht=scontent.fhan4-4.fna&_nc_gid=AKFrq_wZYnJsaLslGh0w8yu&oh=00_AYDdjagfUOFHus32p56I5N1saiwFqnj74GaoT6fFwGpYfQ&oe=67C1A619',
     },
     {
       title: 'Album 1',
-      cover: 'https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-1/473970633_3696832523866904_758678437992717420_n.jpg?stp=c0.80.480.480a_dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeHZlmluPiyFc_Zs_rGdmfdr_oT90JzeaDn-hP3QnN5oOQz7OIPnbUxDZ_JiiT9sO74usoyqoX4_ydlqraEVMv-U&_nc_ohc=2KYKHuMkaXsQ7kNvgGPE7DL&_nc_oc=AdglR8n15cNTeEyruPz-XBpBiAN1F3t0JQCef_uN_2-A2rSe0rpC26HEhupZTRGH5ZQSW2H77_n95gtfx0Q-k-yY&_nc_zt=24&_nc_ht=scontent.fsgn8-4.fna&_nc_gid=AWtcAfwyoSXWCOb4cQ4go6e&oh=00_AYD1BunQzZewXisdWF1vRv1bh86fzAR0M5YQMDVkNc9XFg&oe=67941E54',
+      cover: 'https://scontent.fhan4-4.fna.fbcdn.net/v/t39.30808-6/480816026_3722212301328926_8576528358840974159_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=4tDyM9HFwUMQ7kNvgHwDZHp&_nc_oc=AdiaehlR5IuXlqMiryE0S5NiEBY7QFqJ7W4v9x7ijhsbj3uAa--NK7UENv3zMtFCvmY&_nc_zt=23&_nc_ht=scontent.fhan4-4.fna&_nc_gid=AKFrq_wZYnJsaLslGh0w8yu&oh=00_AYDdjagfUOFHus32p56I5N1saiwFqnj74GaoT6fFwGpYfQ&oe=67C1A619',
     },
     {
       title: 'Album 1',
-      cover: 'https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-1/473970633_3696832523866904_758678437992717420_n.jpg?stp=c0.80.480.480a_dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeHZlmluPiyFc_Zs_rGdmfdr_oT90JzeaDn-hP3QnN5oOQz7OIPnbUxDZ_JiiT9sO74usoyqoX4_ydlqraEVMv-U&_nc_ohc=2KYKHuMkaXsQ7kNvgGPE7DL&_nc_oc=AdglR8n15cNTeEyruPz-XBpBiAN1F3t0JQCef_uN_2-A2rSe0rpC26HEhupZTRGH5ZQSW2H77_n95gtfx0Q-k-yY&_nc_zt=24&_nc_ht=scontent.fsgn8-4.fna&_nc_gid=AWtcAfwyoSXWCOb4cQ4go6e&oh=00_AYD1BunQzZewXisdWF1vRv1bh86fzAR0M5YQMDVkNc9XFg&oe=67941E54',
+      cover: 'https://scontent.fhan4-4.fna.fbcdn.net/v/t39.30808-6/480816026_3722212301328926_8576528358840974159_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=4tDyM9HFwUMQ7kNvgHwDZHp&_nc_oc=AdiaehlR5IuXlqMiryE0S5NiEBY7QFqJ7W4v9x7ijhsbj3uAa--NK7UENv3zMtFCvmY&_nc_zt=23&_nc_ht=scontent.fhan4-4.fna&_nc_gid=AKFrq_wZYnJsaLslGh0w8yu&oh=00_AYDdjagfUOFHus32p56I5N1saiwFqnj74GaoT6fFwGpYfQ&oe=67C1A619',
     },
     {
       title: 'Album 1',
-      cover: 'https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-1/473970633_3696832523866904_758678437992717420_n.jpg?stp=c0.80.480.480a_dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeHZlmluPiyFc_Zs_rGdmfdr_oT90JzeaDn-hP3QnN5oOQz7OIPnbUxDZ_JiiT9sO74usoyqoX4_ydlqraEVMv-U&_nc_ohc=2KYKHuMkaXsQ7kNvgGPE7DL&_nc_oc=AdglR8n15cNTeEyruPz-XBpBiAN1F3t0JQCef_uN_2-A2rSe0rpC26HEhupZTRGH5ZQSW2H77_n95gtfx0Q-k-yY&_nc_zt=24&_nc_ht=scontent.fsgn8-4.fna&_nc_gid=AWtcAfwyoSXWCOb4cQ4go6e&oh=00_AYD1BunQzZewXisdWF1vRv1bh86fzAR0M5YQMDVkNc9XFg&oe=67941E54',
+      cover: 'https://scontent.fhan4-4.fna.fbcdn.net/v/t39.30808-6/480816026_3722212301328926_8576528358840974159_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=4tDyM9HFwUMQ7kNvgHwDZHp&_nc_oc=AdiaehlR5IuXlqMiryE0S5NiEBY7QFqJ7W4v9x7ijhsbj3uAa--NK7UENv3zMtFCvmY&_nc_zt=23&_nc_ht=scontent.fhan4-4.fna&_nc_gid=AKFrq_wZYnJsaLslGh0w8yu&oh=00_AYDdjagfUOFHus32p56I5N1saiwFqnj74GaoT6fFwGpYfQ&oe=67C1A619',
     },
     {
       title: 'Album 1',
-      cover: 'https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-1/473970633_3696832523866904_758678437992717420_n.jpg?stp=c0.80.480.480a_dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeHZlmluPiyFc_Zs_rGdmfdr_oT90JzeaDn-hP3QnN5oOQz7OIPnbUxDZ_JiiT9sO74usoyqoX4_ydlqraEVMv-U&_nc_ohc=2KYKHuMkaXsQ7kNvgGPE7DL&_nc_oc=AdglR8n15cNTeEyruPz-XBpBiAN1F3t0JQCef_uN_2-A2rSe0rpC26HEhupZTRGH5ZQSW2H77_n95gtfx0Q-k-yY&_nc_zt=24&_nc_ht=scontent.fsgn8-4.fna&_nc_gid=AWtcAfwyoSXWCOb4cQ4go6e&oh=00_AYD1BunQzZewXisdWF1vRv1bh86fzAR0M5YQMDVkNc9XFg&oe=67941E54',
+      cover: 'https://scontent.fhan4-4.fna.fbcdn.net/v/t39.30808-6/480816026_3722212301328926_8576528358840974159_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=4tDyM9HFwUMQ7kNvgHwDZHp&_nc_oc=AdiaehlR5IuXlqMiryE0S5NiEBY7QFqJ7W4v9x7ijhsbj3uAa--NK7UENv3zMtFCvmY&_nc_zt=23&_nc_ht=scontent.fhan4-4.fna&_nc_gid=AKFrq_wZYnJsaLslGh0w8yu&oh=00_AYDdjagfUOFHus32p56I5N1saiwFqnj74GaoT6fFwGpYfQ&oe=67C1A619',
     },
     {
       title: 'Album 1',
-      cover: 'https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-1/473970633_3696832523866904_758678437992717420_n.jpg?stp=c0.80.480.480a_dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeHZlmluPiyFc_Zs_rGdmfdr_oT90JzeaDn-hP3QnN5oOQz7OIPnbUxDZ_JiiT9sO74usoyqoX4_ydlqraEVMv-U&_nc_ohc=2KYKHuMkaXsQ7kNvgGPE7DL&_nc_oc=AdglR8n15cNTeEyruPz-XBpBiAN1F3t0JQCef_uN_2-A2rSe0rpC26HEhupZTRGH5ZQSW2H77_n95gtfx0Q-k-yY&_nc_zt=24&_nc_ht=scontent.fsgn8-4.fna&_nc_gid=AWtcAfwyoSXWCOb4cQ4go6e&oh=00_AYD1BunQzZewXisdWF1vRv1bh86fzAR0M5YQMDVkNc9XFg&oe=67941E54',
+      cover: 'https://scontent.fhan4-4.fna.fbcdn.net/v/t39.30808-6/480816026_3722212301328926_8576528358840974159_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=4tDyM9HFwUMQ7kNvgHwDZHp&_nc_oc=AdiaehlR5IuXlqMiryE0S5NiEBY7QFqJ7W4v9x7ijhsbj3uAa--NK7UENv3zMtFCvmY&_nc_zt=23&_nc_ht=scontent.fhan4-4.fna&_nc_gid=AKFrq_wZYnJsaLslGh0w8yu&oh=00_AYDdjagfUOFHus32p56I5N1saiwFqnj74GaoT6fFwGpYfQ&oe=67C1A619',
     },
     {
       title: 'Album 1',
-      cover: 'https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-1/473970633_3696832523866904_758678437992717420_n.jpg?stp=c0.80.480.480a_dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeHZlmluPiyFc_Zs_rGdmfdr_oT90JzeaDn-hP3QnN5oOQz7OIPnbUxDZ_JiiT9sO74usoyqoX4_ydlqraEVMv-U&_nc_ohc=2KYKHuMkaXsQ7kNvgGPE7DL&_nc_oc=AdglR8n15cNTeEyruPz-XBpBiAN1F3t0JQCef_uN_2-A2rSe0rpC26HEhupZTRGH5ZQSW2H77_n95gtfx0Q-k-yY&_nc_zt=24&_nc_ht=scontent.fsgn8-4.fna&_nc_gid=AWtcAfwyoSXWCOb4cQ4go6e&oh=00_AYD1BunQzZewXisdWF1vRv1bh86fzAR0M5YQMDVkNc9XFg&oe=67941E54',
+      cover: 'https://scontent.fhan4-4.fna.fbcdn.net/v/t39.30808-6/480816026_3722212301328926_8576528358840974159_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=4tDyM9HFwUMQ7kNvgHwDZHp&_nc_oc=AdiaehlR5IuXlqMiryE0S5NiEBY7QFqJ7W4v9x7ijhsbj3uAa--NK7UENv3zMtFCvmY&_nc_zt=23&_nc_ht=scontent.fhan4-4.fna&_nc_gid=AKFrq_wZYnJsaLslGh0w8yu&oh=00_AYDdjagfUOFHus32p56I5N1saiwFqnj74GaoT6fFwGpYfQ&oe=67C1A619',
     },
 
   ]);

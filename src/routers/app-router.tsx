@@ -28,6 +28,8 @@ import MyFriends from '@/pages/client/profile/component/MyFriends';
 import Dashboard from '@/layouts/Admin/Dashboard';
 import { PostDetail } from '@/pages/client/post-detail';
 import { Bookmarks } from '@/pages/client/bookmarks';
+import Album from '@/pages/client/profile/component/MyAlbum';
+import MyPhotos from '@/pages/client/profile/component/MyImage';
 
 // ----------------------------------------------------------------------
 const router = createBrowserRouter(
@@ -44,9 +46,11 @@ const router = createBrowserRouter(
           <Route path={paths.postDetail} element={<PostDetail />} />
           <Route   element={<Profile />} >
             <Route path={paths.profile} element={<MyProfile />} />
+            <Route path={paths.profileDetail} element={<MyInfor />} />
+            <Route path={paths.myFriends} element={<MyFriends />} />
+            <Route path={paths.myImage} element={<MyPhotos />} />
           </Route>
-          <Route path={paths.profileDetail} element={<MyInfor />} />
-          <Route path={paths.myFriends} element={<MyFriends />} />
+         
           <Route path={paths.following} element={<Following />} />
           <Route path={paths.exploreDetail} element={<ExploreDetail />}></Route>
           <Route path={paths.explore} element={<Explore />} />

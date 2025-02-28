@@ -27,9 +27,9 @@ function Dashboard() {
       </div>
         </div>
     <div className='bg-zinc-800 border border-zinc-600 w-[100%] h-[100%]  px-[2rem] py-[2rem]'>
-    {/* <Dashboard/>
-     */}
-     <ManageComments/>
+    <Dashboard/>
+    
+     {/* <ManageComments/> */}
     </div>
     </main>
   </SidebarProvider>
