@@ -1,14 +1,13 @@
 import { axiosWithAuth } from "../axios.config"
-import { getApiAction, getApiActionType } from "@/utils/getApi"
+import { authApiEndpoint, getApiAction, getApiActionType } from "@/utils/getApi"
 import { IPayloadForgotPassword, IPayloadLogin, IPayLoadRegister } from "../../types/auth.type"
 
 
 
 export const registerApi =async (payload:IPayLoadRegister)=>{
     try {
-       const auth= getApiAction(getApiActionType.auth)
-       console.log(auth);
-       const authApi=await axiosWithAuth.post(`auth/register`, payload);
+    
+       const authApi=await axiosWithAuth.post(`${authApiEndpoint}/register`, payload);
        return authApi?.data;
 
   
@@ -19,7 +18,7 @@ export const registerApi =async (payload:IPayLoadRegister)=>{
 export const loginApi =async (payload:IPayloadLogin)=>{
     try {
     
-        const authApi=await axiosWithAuth.post(`auth/login`, payload);
+        const authApi=await axiosWithAuth.post(`${authApiEndpoint}/login`, payload);
         return authApi?.data;
       
 

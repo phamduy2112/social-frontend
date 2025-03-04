@@ -1,14 +1,14 @@
 
 // /get-user-by-id
 
-import { getApiAction } from "@/utils/getApi";
+import { getApiAction, getApiActionType } from "@/utils/getApi";
 import { axiosWithAuth } from "../axios.config";
 import { TPayloadUser } from "@/types/user.type";
 
 export const getUserApi =async ()=>{
     try {
-    //    const auth= getApiAction(getApiActionType.auth)
-    const response=await axiosWithAuth.get(`user/get-user-by-id`);
+       const userEndpoint= getApiAction(getApiActionType.user)
+    const response=await axiosWithAuth.get(`${userEndpoint}/get-user-by-id`);
     return response.data;
        
 
